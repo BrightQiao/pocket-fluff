@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>口袋绒毛</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="page-login" class="page active">
+        <div class="login-title">口袋绒毛</div>
+        <img src="puppy.png" style="width:120px;height:120px;margin-bottom:40px;animation:float 3s ease-in-out infinite;">
+        <input type="text" class="login-input" id="nicknameInput" placeholder="告诉我你的名字吧">
+        <button class="login-btn" onclick="enterHome()">进入树屋</button>
+    </div>
+
+    <div id="page-home" class="page">
+        <div class="treehouse" id="treehouse" style="background: url('main.png') center top/100% auto no-repeat; overflow: visible;">
+            <div class="house" id="house" style="background:transparent;box-shadow:none;overflow:visible;">
+                <div class="light-overlay" id="lightOverlay"></div>
+                
+                <img class="fluff" id="fluff" src="puppy.png" style="width:50px;height:50px;left:28%;top:98%;">
+                
+                <div class="door-sign" id="doorSign"></div>
+            </div>
+        </div>
+        
+        <div class="scene-buttons">
+            <img class="scene-img-btn" src="b1.png" alt="深夜emo" onclick="startStarGame()">
+            <button class="scene-btn future" onclick="startBubbleGame()">·未来焦虑·</button>
+            <button class="scene-btn self" onclick="startPaperGame()">·自我否定·</button>
+            <button class="scene-btn social" onclick="startSignGame()">·社交疲惫·</button>
+        </div>
+    </div>
+
+    <div id="page-album" class="page">
+        <div class="album-title">绒毛和朋友们的成长相册</div>
+        <div class="album-container" id="albumContainer">
+        </div>
+    </div>
+
+    <div id="page-mailbox" class="page">
+        <button class="write-btn" onclick="showWriteModal()">写一封信给绒毛</button>
+    </div>
+
+    <div id="page-me" class="page">
+        <div style="padding: 40px 20px; text-align: center;">
+            <div style="width: 120px; height: 120px; margin: 0 auto 30px; background: linear-gradient(135deg, #ffd966 0%, #ffb347 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); cursor: pointer; transition: box-shadow 0.3s;" id="avatarContainer" onclick="changeAvatar()">
+                <img id="avatarImg" src="" style="width:100%;height:100%;border-radius:50%;display:none;">
+                <span id="avatarIcon">👤</span>
+            </div>
+            <input type="file" id="avatarInput" accept="image/*" style="display:none;" onchange="uploadAvatar(event)">
+            <div style="font-size: 24px; color: #5d4e37; margin-bottom: 30px; cursor: pointer; transition: text-shadow 0.3s; font-family: 宋体,serif;" id="nicknameDisplay" onclick="changeNickname()">昵称</div>
+            
+            <div style="background: #fff; border-radius: 20px; padding: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); font-family: 宋体,serif;">
+                <div style="display: flex; justify-content: space-around; margin-bottom: 20px;">
+                    <div>
+                        <div style="font-size: 32px; font-weight: bold; color: #a8d5ba;" id="daysCount">0</div>
+                        <div style="font-size: 13px; color: #8b7355; margin-top: 5px;">相处天数</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 32px; font-weight: bold; color: #f2b4c8;" id="interactCount">0</div>
+                        <div style="font-size: 13px; color: #8b7355; margin-top: 5px;">互动次数</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 32px; font-weight: bold; color: #ffd966;" id="albumCount">0</div>
+                        <div style="font-size: 13px; color: #8b7355; margin-top: 5px;">解锁相册</div>
+                    </div>
+                </div>
+                <div style="border-top: 1px solid #f0f0f0; padding-top: 20px;">
+                    <div style="font-size: 16px; color: #5d4e37; line-height: 1.6;" id="relationshipText">你认识了绒毛，这是你的新朋友</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-bar" id="navBar">
+        <div class="nav-item active" onclick="switchPage('home')">
+            <span class="nav-icon">🏠</span>
+            <span class="nav-text">树屋</span>
+        </div>
+        <div class="nav-item" onclick="switchPage('album')">
+            <span class="nav-icon">📖</span>
+            <span class="nav-text">相册</span>
+        </div>
+        <div class="nav-item" onclick="switchPage('mailbox')">
+            <span class="nav-icon">📮</span>
+            <span class="nav-text">信箱</span>
+        </div>
+        <div class="nav-item" onclick="switchPage('me')">
+            <span class="nav-icon">👤</span>
+            <span class="nav-text">我</span>
+        </div>
+    </div>
+
+    <div id="sticker" class="sticker hidden" onclick="hideSticker()"></div>
+
+    <script src="storage.js"></script>
+    <script src="starGame.js"></script>
+    <script src="paperGame.js"></script>
+    <script src="bubbleGame.js"></script>
+    <script src="signGame.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
